@@ -20,5 +20,5 @@ for i in range(n):
 print(n)
 print(error)
 print(high)
-print(max(list))
-print(sum(list)/len(list))
+print(f'{max(list):.1f}')
+print(f'{sum(list)/len(list):.1f}'')
