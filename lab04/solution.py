@@ -21,13 +21,13 @@ def ranking(names, scores):
     return [name for scores,name in res]
 
 
-    def above_average(names, scores):
-        namebest = []
-        avg = average(scores)
-        for i in range(len(scores)):
-            if scores[i] > avg:
-                namebest.append(names[i])
-        return namebest
+def above_average(names, scores):
+    namebest = []
+    avg = average(scores)
+    for i in range(len(scores)):
+        if scores[i] > avg:
+            namebest.append(names[i])
+    return namebest
 
 if __name__ == '__main__':
     names = ['Аня','Боря','Вика']
