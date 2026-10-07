@@ -28,3 +28,8 @@ def ranking(names, scores):
             if scores[i] > avg:
                 namebest.append(names[i])
         return namebest
+
+if __name__ == '__main__':
+    names = ['Аня','Боря','Вика']
+    scores = [7.0,9.0,9.0]
+    print(winner(names,scores),f'{average(scores):.2f}',ranking(names,scores), above_average(names,scores))
