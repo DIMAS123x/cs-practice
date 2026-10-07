@@ -11,3 +11,11 @@ def average(scores):
     if len(scores) == 0:
         return 0
     return sum(scores)/len(scores)
+
+
+def ranking(names, scores):
+    res = []
+    for i in range(len(names)):
+        res.append((scores[i],names[i]))
+    res.sort(reverse = True)
+    return [name for scores,name in res]
