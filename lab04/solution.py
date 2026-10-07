@@ -5,3 +5,9 @@ def winner(names, scores):
              best = i
 
     return names[best]
+
+
+def average(scores):
+    if len(scores) == 0:
+        return 0
+    return sum(scores)/len(scores)
