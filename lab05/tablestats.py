@@ -41,7 +41,6 @@ def total_minutes(rows,kind):
             total += row['минуты']
     return round(total,1)
 
-
 def to_csv(counts):
     res = 'тип,количество'
 
