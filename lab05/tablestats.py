@@ -23,3 +23,12 @@ def read_rows(lines):
             continue
 
     return rows
+
+
+def count_types(rows):
+    res = {}
+
+    for row in rows:
+        kind = row['тип']
+        res[kind] = res.get(kind,0) + 1
+    return res
