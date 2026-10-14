@@ -32,3 +32,19 @@ def count_types(rows):
         kind = row['тип']
         res[kind] = res.get(kind,0) + 1
     return res
+
+def total_minutes(rows,kind):
+    total = 0
+
+    for row in rows:
+        if row['тип'] == kind:
+            total += row['минуты']
+    return round(total,1)
+
+
+def to_csv(counts):
+    res = 'тип,количество'
+
+    for kind in sorted(counts):
+        res += '?\n' + kind + ',' + str(counts[kind])
+    return res
