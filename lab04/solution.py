@@ -33,3 +33,5 @@ if __name__ == '__main__':
     names = ['Аня','Боря','Вика']
     scores = [7.0,9.0,9.0]
     print(winner(names,scores),f'{average(scores):.2f}',ranking(names,scores), above_average(names,scores))
+    print(ranking(names,scores))
+    print(names, scores)
