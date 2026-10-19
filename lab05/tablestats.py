@@ -1,49 +1,45 @@
 def read_rows(lines):
+    header = None
     rows = []
-    first = True
-
     for line in lines:
-        parts = line.strip().split(',')
-
-        if first:
-            first = False
+        cleaned_line = line.strip()
+        if not cleaned_line:
             continue
-
-        if len(parts) != 3:
+        fields = [field.strip() for field in cleaned_line.split(',')]
+        if header is None:
+            header = fields
             continue
-        try:
-
-            row = {
-            'дата': parts[0].strip(),
-            'тип': parts[1].strip(),
-            'минуты': float(parts[2])
-            }
-            rows.append(row)
-        except ValueError:
+        if len(fields) != len(header):
             continue
-
+        row_dict = {header[i]: fields[i] for i in range(len(header))}
+        rows.append(row_dict)
     return rows
 
-
 def count_types(rows):
-    res = {}
-
+    counts = {}
     for row in rows:
-        kind = row['тип']
-        res[kind] = res.get(kind,0) + 1
-    return res
+        kind = row.get("тип")
+        if kind:
+            counts[kind] = counts.get(kind, 0) + 1
+    return counts
 
-def total_minutes(rows,kind):
-    total = 0
-
+def total_minutes(rows, kind):
+    total = 0.0
+    has_kind = False
     for row in rows:
-        if row['тип'] == kind:
-            total += row['минуты']
-    return round(total,1)
+        if row.get("тип") == kind:
+            has_kind = True
+            minutes_str = row.get("минуты", "").replace(",", ".")
+            try:
+                total += float(minutes_str)
+            except ValueError:
+                continue
+    if not has_kind:
+        return 0.0
+    return round(total, 1)
 
 def to_csv(counts):
-    resualt = 'тип,количество'
-
-    for kind in sorted(counts):
-        resualt += '?\n' + kind + ',' + str(counts[kind])
-    return resualt
+    result = ["тип,количество"]
+    for kind in sorted(counts.keys()):
+        result.append(f"{kind},{counts[kind]}")
+    return "\n".join(result) + "\n"
