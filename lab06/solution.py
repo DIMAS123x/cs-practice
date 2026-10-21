@@ -2,7 +2,7 @@ def count_items(values:dict):
     cnt = {}
     for item in values:
         cnt[item] = cnt.get(item,0) + 1
-        return
+    return cnt
 
 
 
@@ -13,4 +13,5 @@ def unique_sorted(values:dict):
 def common(first:list,second:list):
     return sorted(set(first) & set(second))
 
-
+def only_in_first(first: list,second: list):
+    return sorted(set(first)- set(second))
