@@ -6,8 +6,8 @@ def count_items(values:dict)->dict:
 
 
 
-def unique_sorted(values:dict) -> list:
-    return set(sorted(values))
+def unique_sorted(values:list) -> list:
+    return sorted(set(values))
 
 
 def common(first:list,second:list) -> list:
