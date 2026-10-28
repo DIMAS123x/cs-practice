@@ -10,3 +10,7 @@ def block(matrix,rows,columns):
 
 def column_means(matrix):
     return np.asarray(matrix).mean(axis=0)
+
+def column_range(matrix,column):
+    col = np.asarray(matrix)[:,column]
+    return col.max() - col.min()
