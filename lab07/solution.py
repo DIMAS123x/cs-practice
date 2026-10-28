@@ -2,7 +2,7 @@ import numpy as np
 
 
 def reshape_rows(values: list[float], width: int) -> list[list[float]]:
-    if width <= 0 or len(volues) % width != 0:
+    if width <= 0 or len(values) % width != 0:
         return []
     if len(values) == 0:
         return []
