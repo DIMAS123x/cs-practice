@@ -10,10 +10,15 @@ def reshape_rows(values: list[float], width: int) -> list[list[float]]:
     return np.round(arr,6).tolist()
 
 def block(matrix: list[list[float]], rows: list[int], columns: list[int]) -> list[list[float]]:
-    arr = np.asarray(matrix)
-    if arr.size == 0 or len(rows) == 0 or len(columns):
+    if not matrix or len(matrix) == 0:
         return []
+    arr = np.asarray(matrix,dtype=float)
 
+    if arr.size == 0 or len(rows) == 0 or len(columns) == 0:
+        return
+    sub = arr[rows][:,columns]
+
+    return np.round(sub,6).tolist()
 def column_means(matrix: list[list[float]]) -> list[float]:
     arr = np.asarray(matrix)
     if arr.size == 0 or arr.ndim < 2 or arr.shape[0] == 0:
