@@ -1,4 +1,4 @@
-from numpy import *
+import numpy as np
 
 
 def reshape_rows(values: list[float], width: int) -> list[list[float]]:
