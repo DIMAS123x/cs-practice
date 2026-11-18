@@ -24,3 +24,9 @@ def cap_above(values: list[float], limit: float) -> list[float]:
     arr = np.asarray(values,dtype = float).copy()
     arr[arr > limit] = limit
     return arr.tolist()
+
+
+def celsius_to_fahrenheit(values: list[float]) -> list[float]:
+    arr = np.asarray(values,dtype = float)
+    return (arr * 9/5 + 32).tolist()
+     
